@@ -1,20 +1,51 @@
-# Image-Classification
-# Task 1: AI Track 
+# Task 1 - AI Image Classification
+
+---
 
 ## Overview
-This project uses Teachable Machine by Google to train an image recognition model with two classes. The trained model was then loaded in a Python script to predict the class of a new image.
+This project uses Teachable Machine by Google to train an image recognition model with two classes: Hello Kitty and Real Cat. The trained model was then exported and tested using a Python script in VS Code.
+
+---
 
 ## Step 1: Training the Model
-I used Teachable Machine to create two classes and uploaded images for each one. After uploading the images, I trained the model and tested it in the preview panel to check the accuracy.
+I uploaded images for two classes, Hello Kitty and Real Cat, and trained the model on Teachable Machine.
 
-![Training the model](Class1.png)
-![Training the model](Class2.png)
+---
 
+## Step 2: Testing Each Class in the Preview Panel
+After training, I tested the model in the preview panel with a new image for each class to check the accuracy.
 
-## Step 2: Setting up the Environment
-The model needed TensorFlow 2.12.1, which is not compatible with the Python version installed on my system. To fix this, I created a new environment using Anaconda with Python 3.10 and installed the required libraries there (opencv-python, tensorflow, pillow, numpy). Then I connected VS Code to this environment so it could run the script correctly.
+### Hello Kitty Class Test
+![Hello Kitty Class Test](Class1.png)
 
-## Step 3: Python Script
+### Real Cat Class Test
+![Real Cat Class Test](Class2.png)
+
+---
+
+## Step 3: Exporting the Model
+After confirming the model worked well, I exported it in TensorFlow format, using the Keras option. This gave me two files:
+- keras_model.h5
+- labels.txt
+
+---
+
+## Step 4: Setting up the Environment
+
+An Anaconda environment named `Teachable-Machine-tf212` was created using Python 3.10.20 to ensure compatibility with TensorFlow 2.12.1 and the exported Keras model.
+
+The required libraries were installed inside this environment:
+
+- TensorFlow
+- OpenCV
+- Pillow
+- NumPy
+
+After that, Visual Studio Code was configured to use the same Anaconda environment as the Python interpreter, and the prediction script was executed using this environment.
+
+---
+
+## Step 5: Python Script
 I wrote a Python script that loads the exported model, opens a test image, resizes it to fit the model input size, and predicts its class. The script also prints the predicted class name and the confidence score.
 
 ```python
@@ -37,7 +68,7 @@ class_names = open("labels.txt", "r").readlines()
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Replace this with the path to your image
-image = Image.open(r"C:\Users\rafee\OneDrive\Desktop\converted_keras (1)\Test_image1.png").convert("RGB")
+image = Image.open("Test_image1.png").convert("RGB")
 
 # resizing the image to be at least 224x224 and then cropping from the center
 size = (224, 224)
@@ -63,7 +94,9 @@ print("Class:", class_name[2:], end="")
 print("Confidence Score:", confidence_score)
 ```
 
-## Step 4: Output
-I ran the script in VS Code and the model correctly predicted the class of the test image with high confidence.
+---
+
+## Step 6: Running the Script in VS Code
+I ran the script from the VS Code terminal using the Anaconda environment, and the model correctly predicted the class of the test image with high confidence.
 
 ![Model output](Output.png)
