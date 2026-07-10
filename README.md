@@ -1,6 +1,5 @@
 # Task 1 - AI Image Classification
 
----
 
 ## Step 1: Training the Model
 I uploaded images for two classes, Hello Kitty and Real Cat, and trained the model on Teachable Machine.
@@ -29,7 +28,7 @@ The required libraries were installed inside this environment:
 - Pillow
 - NumPy
 
-After that, Visual Studio Code was configured to use the same Anaconda environment as the Python interpreter, and the prediction script was executed using this environment.
+After that, Visual Studio Code was configured to use the same Anaconda environment as the Python interpreter.
 
 ---
 
