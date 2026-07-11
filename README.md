@@ -1,4 +1,4 @@
-# Task 1 - AI Image Classification
+# AI - Task 1: Image Classification
 
 ## Step 1: Training the Model
 I uploaded images for two classes, Hello Kitty and Real Cat, and trained the model on Teachable Machine.
